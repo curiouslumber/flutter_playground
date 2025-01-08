@@ -24,41 +24,53 @@ class HomePage extends StatelessWidget {
             ElevatedButton(
               onPressed: () => Get.to(() => ListViewDemo()),
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.teal[100]),
+                backgroundColor: WidgetStatePropertyAll(Colors.brown[100]),
                 shape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)
                   ),
                 ),
-                shadowColor: WidgetStatePropertyAll(Colors.tealAccent[100]),
+                shadowColor: WidgetStatePropertyAll(Colors.brown[100]),
               ),
-              child: const Text("ListView"),
+              child: Text("ListView",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
+              ),
             ),
             ElevatedButton(
               onPressed: () {  },
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.teal[200]),
+                backgroundColor: WidgetStatePropertyAll(Colors.brown[200]),
                 shape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)
                   ),
                 ),
-                shadowColor: WidgetStatePropertyAll(Colors.tealAccent[100]),
+                shadowColor: WidgetStatePropertyAll(Colors.brown[100]),
               ),
-              child: const Text("Second"),
+              child: Text("Second",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primaryFixed,
+                ),
+              ),
             ),
             ElevatedButton(
               onPressed: () {  },
               style: ButtonStyle(
-                backgroundColor: WidgetStatePropertyAll(Colors.teal[300]),
+                backgroundColor: WidgetStatePropertyAll(Colors.brown[300]),
                 shape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10)
                   ),
                 ),
-                shadowColor: WidgetStatePropertyAll(Colors.tealAccent[100]),
+                shadowColor: WidgetStatePropertyAll(Colors.brown[100]),
               ),
-              child: const Text("Third"),
+              child: Text("Third",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimary,
+                ),
+              ),
             ),
           ],
         )

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_playground/playground_controller.dart';
+import 'package:flutter_playground/screens/listviewdemo.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -23,23 +24,55 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: const Text('Flutter Playground'),
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor, 
+          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
           elevation: 4.0,
         ),
         body: Container(
-          alignment: Alignment.center,
-          color: Theme.of(context).colorScheme.surface,
-          child: Obx(
-            () => Text(
-              controller.count.value.toString(),
-              style: TextStyle(
-                fontSize: 16.0
-              ),
-            ),
-          ),
-        ),
+            padding: EdgeInsets.symmetric(horizontal: 16),
+            alignment: Alignment.center,
+            color: Theme.of(context).colorScheme.surface,
+            child: Column(
+              children: [
+                Obx(
+                  () => Card(
+                    child: ListTile(
+                      title: Text('Count: ${controller.count}'),
+                      trailing: IconButton(
+                        icon: const Icon(Icons.remove),
+                        onPressed: () {
+                          controller.decrement();
+                        },
+                      ),
+                    ),
+                  ),
+                ),
+                Card(
+                  clipBehavior: Clip.hardEdge,
+                  child: InkWell(
+                    child: SizedBox(
+                        width: double.infinity,
+                        height: 100,
+                        child: Center(
+                          child: Text(
+                            'List View',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleLarge
+                                ?.copyWith(
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .inverseSurface),
+                          ),
+                        ),),
+                    onTap: () {
+                      Get.to(ListViewDemo());
+                    },
+                  ),
+                )
+              ],
+            )),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Theme.of(context).colorScheme.surfaceDim,
+          backgroundColor: Theme.of(context).colorScheme.surface,
           child: const Icon(Icons.add),
           onPressed: () {
             controller.increment();
